@@ -44,7 +44,7 @@ function! clang_format#Reformat(is_visual) range
 
     " Parse the new cursor position
     let yaml = remove(lines, 0)
-    let newpos = matchstr(yaml, '{ "Cursor": \zs\d\+\ze }')
+    let newpos = matchstr(yaml, '"Cursor": \zs\d\+\ze')
     if (newpos == "")
       echo "ClangFormat: unable to format buffer with style=" . shellescape(g:clang_format_style)
       return
